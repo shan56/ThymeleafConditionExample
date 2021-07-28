@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Form</title>
+</head>
+<body>
+    <form th:action="@{/displayEmployee}" th:object="${employee}"
+    method="post">
+        ID: <input type="number" th:field="*{id}"> <br>
+        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+        Name: <input type="text" th:field="*{name}">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        Role:
+        <select th:field="*{role}">
+            <option value="A" th:text="Admin"></option>
+            <option value="U" th:text="User"></option>
+            <option value="S" th:text="Super"></option>
+        </select>
+        <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></span>
+        <br>
+        Active? <br>
+        <select th:field="*{active}">
+            <option value="true" th:text="Yes"></option>
+            <option value="false" th:text="No"></option>
+        </select>
+        <span th:if="${#fields.hasErrors('active')}" th:errors="*{active}"></span>
+        <br>
+        <input type="submit" value="Enter">
+
+    </form>
+</body>
+</html>

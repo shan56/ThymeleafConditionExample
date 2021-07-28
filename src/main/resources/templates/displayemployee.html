@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Display employee</title>
+</head>
+<body>
+    <div th:if="${employee.active}">
+        <p th:inline="text">The employee's name is [[${employee.name}]]</p>
+        <div th:switch="${employee.role}">
+            <p th:case="U">This employee is a user!</p>
+            <p th:case="S">This employee is a superadmin!</p>
+            <p th:case="A">This employee is an admin</p>
+        </div>
+        <p th:text="${employee.id} >= 10 ? 'This is a new account!' : 'This is an old account'"></p>
+    </div>
+    <div th:unless="${employee.active}">
+        <p>This employee is no longer active in our company!</p>
+    </div>
+
+</body>
+</html>
