@@ -13,8 +13,6 @@ import java.util.ArrayList;
 @Controller
 public class HomeController {
 
-    ArrayList<Employee> employees = new ArrayList<>();
-
     @GetMapping("/employeeForm")
     public String enterEmployee(Model model){
         model.addAttribute("employee", new Employee());
@@ -27,18 +25,7 @@ public class HomeController {
         if (result.hasErrors()) {
             return "employeeform";
         } else {
-            employees.add(employee);
             return "displayemployee";
         }
     }
-
-    @RequestMapping("/allEmployees")
-    public String showAll(Model model){
-
-        // add array list of employees to model
-        model.addAttribute("employees", employees);
-        return "allemployees";
-    }
-
-
 }
