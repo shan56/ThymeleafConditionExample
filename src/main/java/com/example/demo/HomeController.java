@@ -34,6 +34,8 @@ public class HomeController {
 
     @RequestMapping("/allEmployees")
     public String showAll(Model model){
+
+        // add array list of employees to model
         model.addAttribute("employees", employees);
         return "allemployees";
     }

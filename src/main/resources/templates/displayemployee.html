@@ -14,11 +14,14 @@
         </div>
         <p th:text="${employee.id} >= 10 ? 'This is a new account!' : 'This is an old account'"></p>
     </div>
+
+    <!-- if not employee.acitve then -->
     <div th:unless="${employee.active}">
         <p>This employee is no longer active in our company!</p>
     </div>
 
     <br>
+
     <a th:href="@{/allEmployees}">See all our employees</a> <br>
     <a th:href="@{/employeeForm}">Add new employee</a>
 

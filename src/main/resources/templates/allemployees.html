@@ -5,20 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-<h1 th:if="${employees.size()} >0">All employees</h1>
-    <div th:each="employee: ${employees}">
-        <tr >
-
-            <td th:text="${employee.id}" />
-
-            <td th:text="${employee.name}" />
-
-            <td th:text="${employee.role}" />
-
+<!-- check the size of arrary list -->
+<h1 >All Employees</h1>
+    <table th:if="${employees.size()} > 0">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
         </tr>
-        <br>
-    </div>
+        <tr th:each="employee: ${employees}">                 <!-- for (employee : employees) -->                                             <!-- create a table row -->
+            <td th:text="${employee.id}" />                             <!-- first column: id -->
+            <td th:text="${employee.name}" />                           <!-- second column: name -->
+            <td th:text="${employee.role}" />                           <!-- third column: role -->
+            <td th:text="${employee.active} ? 'Active' : 'In-Active'"/> <!-- fourth column: active status -->
+        </tr>
+    </table>
     <div>
+        <!-- if employee.size <= 0 then display message -->
         <p th:unless="${employees.size()} >0">No employees!</p>
     </div>
     <br>
