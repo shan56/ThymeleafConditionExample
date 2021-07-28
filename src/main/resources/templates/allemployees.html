@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<h1 th:if="${employees.size()} >0">All employees</h1>
     <div th:each="employee: ${employees}">
         <tr >
 
@@ -17,6 +18,10 @@
         </tr>
         <br>
     </div>
-
+    <div>
+        <p th:unless="${employees.size()} >0">No employees!</p>
+    </div>
+    <br>
+    <a th:href="@{/employeeForm}">Add new employee</a>
 </body>
 </html>
